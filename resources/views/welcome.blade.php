@@ -3,7 +3,7 @@
     <div class="container text-center mt-5" style="padding: 30vh">
         <!-- Page Name in the Middle -->
         <h1 class="display-4">Sveiki atvykę į skolų už mokslą tvarkymosi sistemą!</h1>
-        <h3 class="text-md">Sistema sukurta Roko Norvaišo</h3>
+        <h3 class="text-md mt-10">Sistema sukurta Roko Norvaišo</h3>
 
         <!-- Two Links (Register and Login) with added margin -->
         @guest

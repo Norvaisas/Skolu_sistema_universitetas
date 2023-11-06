@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="flex items-center justify-center ">
+    <div class="flex items-center justify-center mt-5">
         <table class="w-full rounded-md mb-10">
             <tbody>
             @php
@@ -17,7 +17,7 @@
             @if (!$filteredInitial->isEmpty())
                 <tr>
                     <td colspan="7" class="px-4 text-3xl font-bold">
-                        <p class="text-center">Prašymų pradinės užklausos</p>
+                        <p class="text-center mb-5">Prašymų pradinės užklausos</p>
                     </td>
                 </tr>
                 <tr>

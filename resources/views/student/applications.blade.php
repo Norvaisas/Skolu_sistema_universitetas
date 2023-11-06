@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td class="px-4 text-lg text-center">
-                            <a href="/studentas/prasymai/naujas" class="mb-10 bg-blue-500 hover:bg-blue-600 text-white mx-auto font-bold py-2 px-4 flex w-1/3 justify-center rounded-full transition duration-300 ease-in-out">Pateikti naują prašymą</a>
+                            <a href="/studentas/prasymai/naujas" class="mb-10 bg-blue-500 hover:bg-blue-600 text-white mx-auto font-bold py-2 px-4 flex w-1/2 mt-4 justify-center rounded-full transition duration-300 ease-in-out">Pateikti naują prašymą</a>
                         </td>
                     </tr>
                 @endunless

@@ -15,12 +15,12 @@
                             <td>
                                 <form action="/administratorius/moduliai/{{$module->id}}/kaina" method="POST" style="display: inline;">
                                     @csrf
-                                    <label for="hourly_rate" class="block text-base mb-2">Kokia atsiskaitymo kaina? (EUR)</label>
+                                    <label for="hourly_rate" class="block text-base mb-2 mt-4">Kokia atsiskaitymo kaina? (EUR)</label>
                                     <input type="number" class="border border-gray-200 rounded p-2 w-full" name="hourly_rate" value="{{$module->hourly_rate}}" min="0"/>
                                     @error('hourly_rate' . $module->id)
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
-                                    <button type="submit" class="bg-green-500 text-white rounded-lg" style="width: 120px; height: 30px;">Patvirtinti</button>
+                                    <button type="submit" class="bg-green-500 text-white rounded-lg mb-4" style="width: 120px; height: 30px;">Patvirtinti</button>
                                 </form>
                             </td>
                         </tr>
