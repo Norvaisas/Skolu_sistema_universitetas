@@ -49,7 +49,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-4 border-gray-300 text-3xl font-bold">
-                        <p class="text-center">Nėra skolų prašymų, kuriems reiktų Jūsų pakeitimų</p>
+                        <p class="text-center">Nėra skolų prašymų, kuriems reiktų pradinio Jūsų patvirtinimo</p>
                     </td>
                 </tr>
             @endif

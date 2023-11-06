@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center mt-10">
         <div class="space-y-4">
             @unless($modules->isEmpty())
                 @foreach($modules as $module)
@@ -17,9 +17,8 @@
                                     @csrf
                                     <label for="hourly_rate" class="block text-base mb-2">Kokia atsiskaitymo kaina? (EUR)</label>
                                     <input type="number" class="border border-gray-200 rounded p-2 w-full" name="hourly_rate" value="{{$module->hourly_rate}}" min="0"/>
-
-                                    @error('hourly_rate')
-                                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @error('hourly_rate' . $module->id)
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                     <button type="submit" class="bg-green-500 text-white rounded-lg" style="width: 120px; height: 30px;">Patvirtinti</button>
                                 </form>
@@ -34,7 +33,7 @@
                             @foreach($module->evaluations as $evaluation)
                                 <tr>
                                     <td>
-                                        Nuo <span class="bg-yellow-500 text-white rounded-lg"">{{$evaluation->begin_date}}</span> iki <span class="bg-yellow-500 text-white rounded-lg"">{{$evaluation->end_date}}</span>
+                                        Nuo <span class="bg-yellow-500 text-white rounded-lg">{{$evaluation->begin_date}}</span> iki <span class="bg-yellow-500 text-white rounded-lg">{{$evaluation->end_date}}</span>
                                     </td>
                                 </tr>
                             @endforeach

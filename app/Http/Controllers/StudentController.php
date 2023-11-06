@@ -21,6 +21,7 @@ class StudentController extends Controller
 
     public function storeRequest(Request $request){
         $formFields = $request->validate([
+            'module_id' => 'required',
             'evaluation_id' => 'required'
         ]);
         $formFields['user_id'] = auth()->id();
@@ -28,14 +29,22 @@ class StudentController extends Controller
         return redirect('/studentas/prasymai')->with('message', 'Sėkmingai sukūrėte naują prašymą!');
     }
 
-    public function addPaymentInfoToApplication(Application $application){
+    public function addPaymentInfoToApplication(Request $request, Application $application){
+        if($application->user_id != $request->user()->id) {
+            return redirect(RouteServiceProvider::HOME)->with('message', 'Negalima pasiekti šio puslapio!');
+        }
+
+        if($application->status_id != 2) {
+            return redirect('/studentas/prasymai')->with('message', 'Negalima pasiekti šio puslapio!');
+        }
+
         return view('student.application_edit', ['application' => $application]);
     }
 
     public function updatePaymentInfoForApplication(Request $request, Application $application){
 
-        if($application->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
+        if($application->user_id != $request->user()->id) {
+            return redirect(RouteServiceProvider::HOME)->with('message', 'Negalima pasiekti šio puslapio!');
         }
 
         $formFields = $request->validate([
@@ -55,6 +64,9 @@ class StudentController extends Controller
     public function getStatementPhoto(Request $request, Application $application){
         if($request->user()->id != $application->user->id && $request->user()->role_id != '2'){
             return redirect(RouteServiceProvider::HOME)->with('message', 'Negalima pasiekti šio puslapio!');
+        }
+        if(is_null($application->bank_statement)){
+            return redirect('/administratorius/prasymai')->with('message', 'Tokio išrašo sistemoje nėra');
         }
         $filePath = storage_path('app/public/' . $application->bank_statement);
 

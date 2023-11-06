@@ -54,13 +54,18 @@ class AdminController extends Controller
     }
 
     public function changeModulePrice(Request $request, Module $module){
-        $formFields = $request->validate([
-            'hourly_rate' => 'required'
-        ]);
+        try{
+            $formFields = $request->validate([
+                "hourly_rate" =>'required'
+            ]);
 
-        $module->update($formFields);
+            $module->update($formFields);
 
-        return back()->with('message', 'Modulio atsiskaitymo valandinis įkainis pakeistas sėkmingai!');
+            return back()->with('message', 'Modulio atsiskaitymo valandinis įkainis pakeistas sėkmingai!');
+        }
+        catch(\Exception $e){
+            return back()->withErrors(["hourly_rate" . $module->id => "Įvesta netinkama modulio " . $module->name . " atsiskaitymo trukmė"]);
+        }
     }
 
     public function getNewEval(Module $module){
@@ -76,6 +81,6 @@ class AdminController extends Controller
 
         Evaluation::create($formFields);
 
-        return back()->with('message', 'Naujas atsiskaitymo laikas pridėtas sėkmingai!');
+        return redirect('/administratorius/moduliai')->with('message', 'Naujas atsiskaitymo laikas pridėtas sėkmingai!');
     }
 }

@@ -9,7 +9,9 @@
                     <option value="" disabled selected>--- Pasirinkti modulį ---</option>
                     @foreach($modules as $module)
                         @if($module->user == null)
-                            <option value="{{ $module->id }}">{{ $module->name }}</option>
+                            <option value="{{ $module->id }}" {{ old('module_id') == $module->id ? 'selected' : '' }}>
+                                {{ $module->name }}
+                            </option>
                         @endif
                     @endforeach
                 </select>

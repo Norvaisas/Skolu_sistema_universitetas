@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="flex items-center justify-center">
-        <table class="w-full border rounded-md mb-10">
+        <table class="border rounded-md mb-10 mt-20">
             <tbody>
                 @unless($applications->isEmpty())
                     <tr>
@@ -44,7 +44,7 @@
             </tbody>
         </table>
     </div>
-        <a href="/studentas/prasymai/naujas" class="mb-10 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full block transition duration-300 ease-in-out">Pateikti naują prašymą</a>
+        <a href="/studentas/prasymai/naujas" class="mb-10 bg-blue-500 hover:bg-blue-600 text-white mx-auto font-bold py-2 px-4 flex w-1/3 justify-center rounded-full transition duration-300 ease-in-out">Pateikti naują prašymą</a>
                 @else
                     <tr class="border-gray-300">
                         <td class="px-4 border-gray-300 text-3xl font-bold">
@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td class="px-4 text-lg text-center">
-                            <a href="/studentas/prasymai/naujas" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full inline-block transition duration-300 ease-in-out">Pateikti naują prašymą</a>
+                            <a href="/studentas/prasymai/naujas" class="mb-10 bg-blue-500 hover:bg-blue-600 text-white mx-auto font-bold py-2 px-4 flex w-1/3 justify-center rounded-full transition duration-300 ease-in-out">Pateikti naują prašymą</a>
                         </td>
                     </tr>
                 @endunless
