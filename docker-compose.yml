@@ -3,13 +3,12 @@ services:
     image: "mysql"
     environment:
         MYSQL_ROOT_PASSWORD: 12345
-        MYSQL_DATABASE: Kurjeris
+        MYSQL_DATABASE: Skolutvarkymas
     volumes:
         - db-data:/var/lib/mysql
 
   myapp:
     image: docker.io/bitnami/laravel:10
-    command: ["php artisan:migrate --seed"]
     ports:
       - '8000:8000'
     environment:
@@ -17,7 +16,7 @@ services:
       - DB_PORT=3306
       - DB_USERNAME=root
       - DB_PASSWORD=12345
-      - DB_DATABASE=Kurjeris
+      - DB_DATABASE=Skolutvarkymas
     volumes:
     - './:/app'
     depends_on:
@@ -28,7 +27,6 @@ services:
     restart: always
     ports:
       - '8080:8080'
-
 
 volumes:
   db-data:
