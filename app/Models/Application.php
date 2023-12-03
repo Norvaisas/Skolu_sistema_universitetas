@@ -13,6 +13,7 @@ class Application extends Model
         'user_id',
         'status_id',
         'evaluation_id',
+        'subject_at_matter',
         'bank_statement',
         'iban',
         'debt_slip'

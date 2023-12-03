@@ -16,7 +16,7 @@
                                 <form action="/administratorius/moduliai/{{$module->id}}/kaina" method="POST" style="display: inline;">
                                     @csrf
                                     <label for="hourly_rate" class="block text-base mb-2 mt-4">Kokia atsiskaitymo kaina? (EUR)</label>
-                                    <input type="number" class="border border-gray-200 rounded p-2 w-full" name="hourly_rate" value="{{$module->hourly_rate}}" min="0"/>
+                                    <input type="number" class="border border-gray-200 rounded p-2 w-full" oninvalid="this.setCustomValidity('Skaičius gali būti tik teigiamas ir sveikaskaitinis')" onchange="this.setCustomValidity('')" name="hourly_rate" value="{{$module->hourly_rate}}" min="0"/>
                                     @error('hourly_rate' . $module->id)
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror

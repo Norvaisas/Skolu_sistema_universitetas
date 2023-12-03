@@ -13,7 +13,7 @@
                         @if(!$evaluation->applications()->where('status_id', 4)->get()->isEmpty())
                             <div class="mt-2">
                                 @foreach($evaluation->applications()->where('status_id', 4)->get() as $application)
-                                    <p class="text-sm">{{$application->user->name}} {{$application->user->surname}} {{$application->user->vidko}} <a href="/studentas/prasymai/{{$application->id}}/lapelis" class="font-bold">Atsisiųsti skolos lapelį</a></p>
+                                    <p class="text-sm">{{$application->user->name}} {{$application->user->surname}} {{$application->user->vidko}} <br> Atsiskaitymas: {{$application->subject_at_matter}} <br> <a href="/studentas/prasymai/{{$application->id}}/lapelis" class="font-bold">Atsisiųsti skolos lapelį</a></p>
 
                                 @endforeach
                             </div>

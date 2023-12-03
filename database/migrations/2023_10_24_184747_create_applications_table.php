@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('evaluation_id');
             $table->foreignId('user_id');
             $table->string('bank_statement')->nullable();
+            $table->string('subject_of_matter');
             $table->string('iban')->nullable();
             $table->string('debt_slip')->nullable();
             $table->timestamps();

@@ -6,6 +6,7 @@
                 @unless($applications->isEmpty())
                     <tr>
                         <th class="px-4 py-2 border">Modulis</th>
+                        <th class="px-4 py-2 border">Atsiskaitomas dalykas</th>
                         <th class="px-4 py-2 border">Atsiskaitymo laikotarpio pradžia</th>
                         <th class="px-4 py-2 border">Atsiskaitymo laikotarpio pabaiga</th>
                         <th class="px-4 py-2 border">Statusas</th>
@@ -13,6 +14,7 @@
                     @foreach($applications as $application)
                         <tr>
                             <td class="px-4 py-2 border">{{$application->evaluation->module->name}}</td>
+                            <td class="px-4 py-2 border">{{$application->subject_at_matter}}</td>
                             <td class="px-4 py-2 border">{{$application->evaluation->begin_date}}</td>
                             <td class="px-4 py-2 border">{{$application->evaluation->end_date}}</td>
                             <td class="px-4 py-2 border">

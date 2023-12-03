@@ -23,7 +23,7 @@
 
             <div class="mb-6">
                 <label for="evaluation_duration" class="inline-block text-lg mb-2">Kiek akademinių valandų trunka atsiskaitymas?</label>
-                <input type="number" class="border border-gray-200 rounded p-2 w-full" name="evaluation_duration" value="{{ old('evaluation_duration') }}" min="1" step="1" pattern="\d+" />
+                <input type="number" class="border border-gray-200 rounded p-2 w-full" oninvalid="this.setCustomValidity('Skaičius gali būti tik teigiamas ir sveikaskaitinis')" onchange="this.setCustomValidity('')" name="evaluation_duration" value="{{ old('evaluation_duration') }}" min="1" step="1" pattern="\d+" />
 
                 @error('evaluation_duration')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

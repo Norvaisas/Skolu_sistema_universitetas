@@ -22,7 +22,8 @@ class StudentController extends Controller
     public function storeRequest(Request $request){
         $formFields = $request->validate([
             'module_id' => 'required',
-            'evaluation_id' => 'required'
+            'evaluation_id' => 'required',
+            'subject_at_matter' => 'required'
         ]);
         $formFields['user_id'] = auth()->id();
         Application::create($formFields);

@@ -7,6 +7,8 @@ use App\Models\Evaluation;
 use App\Models\Module;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Lang;
 
 class AdminController extends Controller
 {
@@ -75,7 +77,16 @@ class AdminController extends Controller
     public function storeNewEval(Request $request, Module $module){
         $formFields = $request->validate([
             'begin_date' => 'required',
-            'end_date' => 'required'
+            'end_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) use ($request) {
+                    $beginDate = $request->input('begin_date');
+                    if ($beginDate && $value && strtotime($value) <= strtotime($beginDate)) {
+                        $fail(Lang::get('validation.custom.end_date.after_or_equal'));
+                    }
+                },
+            ],
         ]);
         $formFields['module_id'] = $module->id;
 
